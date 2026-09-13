@@ -1,6 +1,6 @@
 ﻿namespace Data_Structure.Tree
 {
-    class TreeNode
+    public class TreeNode
     {
         public int Data;
         public TreeNode Left;

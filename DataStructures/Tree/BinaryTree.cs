@@ -1,26 +1,8 @@
-
-
-
-using System;
-
 namespace Data_Structure.Tree
 {
-    class BinaryTree
+    public class BinaryTree
     {
         public TreeNode Root;
-
-        public void InOrder()
-        {
-            InOrder(Root);
-        }
-
-        private void InOrder(TreeNode node)
-        {
-            if (node == null) return;
-            InOrder(node.Left);
-            Console.Write(node.Data + " ");
-            InOrder(node.Right);
-        }
 
         public void Insert(int data)
         {
@@ -38,34 +20,6 @@ namespace Data_Structure.Tree
                 root.Right = InsertRec(root.Right, data);
 
             return root;
-        }
-
-        public void PreOrder()
-        {
-            PreOrder(Root);
-            Console.WriteLine();
-        }
-
-        private void PreOrder(TreeNode node)
-        {
-            if (node == null) return;
-            Console.Write(node.Data + " ");
-            PreOrder(node.Left);
-            PreOrder(node.Right);
-        }
-
-        public void PostOrder()
-        {
-            PostOrder(Root);
-            Console.WriteLine();
-        }
-
-        private void PostOrder(TreeNode node)
-        {
-            if (node == null) return;
-            PostOrder(node.Left);
-            PostOrder(node.Right);
-            Console.Write(node.Data + " ");
         }
     }
 }

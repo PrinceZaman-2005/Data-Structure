@@ -20,6 +20,7 @@ understanding how common data structures and algorithms work.
 - 🔍 Binary Search
 - 📝 Insertion Sort
 - 🔀 Merge Sort
+- 🌳 Tree Traversal 
 
 ## 🧠 What You'll Learn
 

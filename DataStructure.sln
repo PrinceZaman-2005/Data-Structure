@@ -3,7 +3,7 @@
 VisualStudioVersion = 17.14.36811.4
 MinimumVisualStudioVersion = 10.0.40219.1
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Structure", "Data Structures.csproj", "{295DB595-4377-4992-BBFB-2452AE290E9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure.csproj", "{295DB595-4377-4992-BBFB-2452AE290E9C}"
 EndProject
 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{946F2FAD-3241-45DD-80D1-99506122D6F1}"

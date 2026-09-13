@@ -6,6 +6,8 @@ using Data_Structure.Queue;
 using Data_Structure.Stack;
 using Data_Structure.Tree;
 
+using Algorithms.TreeTraversal;
+
 namespace Data_Structure
 {
     internal class Program
@@ -69,6 +71,7 @@ namespace Data_Structure
             Console.WriteLine("2 - Stack");
             Console.WriteLine("3 - Queue");
             Console.WriteLine("4 - Tree");
+            Console.WriteLine("5 - Tree Traversal");
 
             if (!int.TryParse(Console.ReadLine(), out int choice))
             {
@@ -92,6 +95,10 @@ namespace Data_Structure
 
                 case 4:
                     TestTree();
+                    break;
+
+                case 5:
+                    TestTreeTraversal();
                     break;
 
                 default:
@@ -156,17 +163,43 @@ namespace Data_Structure
             tree.Insert(3);
             tree.Insert(7);
 
-            Console.WriteLine("InOrder:");
-            tree.InOrder();
-            Console.WriteLine();
+            Console.WriteLine("Binary Search Tree created.");
+            Console.WriteLine("Root: " + tree.Root.Data);
+        }
 
-            Console.WriteLine("PreOrder:");
-            tree.PreOrder();
-            Console.WriteLine();
+        // ===== Tree Traversal Test =====
+        static void TestTreeTraversal()
+        {
+            // Create a generic tree
+            var root = new TreeTraversal.TreeNode<int>(10);
 
-            Console.WriteLine("PostOrder:");
-            tree.PostOrder();
-            Console.WriteLine();
+            root.Left = new TreeTraversal.TreeNode<int>(5);
+            root.Right = new TreeTraversal.TreeNode<int>(15);
+
+            root.Left.Left = new TreeTraversal.TreeNode<int>(3);
+            root.Left.Right = new TreeTraversal.TreeNode<int>(7);
+
+            Console.WriteLine("Tree Traversal:");
+
+            Console.WriteLine(
+                "PreOrder:  " +
+                string.Join(" ", TreeTraversal.PreOrder(root))
+            );
+
+            Console.WriteLine(
+                "InOrder:   " +
+                string.Join(" ", TreeTraversal.InOrder(root))
+            );
+
+            Console.WriteLine(
+                "PostOrder: " +
+                string.Join(" ", TreeTraversal.PostOrder(root))
+            );
+
+            Console.WriteLine(
+                "LevelOrder:" +
+                string.Join(" ", TreeTraversal.LevelOrder(root))
+            );
         }
     }
 }

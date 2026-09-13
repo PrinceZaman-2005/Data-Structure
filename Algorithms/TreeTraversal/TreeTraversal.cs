@@ -1,67 +1,90 @@
-using Data_Structure.Tree;
 using System.Collections.Generic;
 
-namespace Algorithms.TreeTraversal;
-
-public static class TreeTraversal
+namespace Algorithms.TreeTraversal
 {
-    public static IEnumerable<int> PreOrder(TreeNode? root)
+    public static class TreeTraversal
     {
-        if (root is null) yield break;
-
-        yield return root.Data;
-
-        foreach (var value in PreOrder(root.Left))
-            yield return value;
-
-        foreach (var value in PreOrder(root.Right))
-            yield return value;
-    }
-
-    public static IEnumerable<int> InOrder(TreeNode? root)
-    {
-        if (root is null) yield break;
-
-        foreach (var value in InOrder(root.Left))
-            yield return value;
-
-        yield return root.Data;
-
-        foreach (var value in InOrder(root.Right))
-            yield return value;
-    }
-
-    public static IEnumerable<int> PostOrder(TreeNode? root)
-    {
-        if (root is null) yield break;
-
-        foreach (var value in PostOrder(root.Left))
-            yield return value;
-
-        foreach (var value in PostOrder(root.Right))
-            yield return value;
-
-        yield return root.Data;
-    }
-
-    public static IEnumerable<int> LevelOrder(TreeNode? root)
-    {
-        if (root is null) yield break;
-
-        var queue = new Queue<TreeNode>();
-        queue.Enqueue(root);
-
-        while (queue.Count > 0)
+        // Generic tree node used by the traversal algorithms
+        public sealed class TreeNode<T>
         {
-            var node = queue.Dequeue();
+            public T Value { get; }
 
-            yield return node.Data;
+            public TreeNode<T>? Left { get; set; }
 
-            if (node.Left is not null)
-                queue.Enqueue(node.Left);
+            public TreeNode<T>? Right { get; set; }
 
-            if (node.Right is not null)
-                queue.Enqueue(node.Right);
+            public TreeNode(T value)
+            {
+                Value = value;
+            }
+        }
+
+        // Root → Left → Right
+        public static IEnumerable<T> PreOrder<T>(TreeNode<T>? root)
+        {
+            if (root is null)
+                yield break;
+
+            yield return root.Value;
+
+            foreach (var value in PreOrder(root.Left))
+                yield return value;
+
+            foreach (var value in PreOrder(root.Right))
+                yield return value;
+        }
+
+        // Left → Root → Right
+        public static IEnumerable<T> InOrder<T>(TreeNode<T>? root)
+        {
+            if (root is null)
+                yield break;
+
+            foreach (var value in InOrder(root.Left))
+                yield return value;
+
+            yield return root.Value;
+
+            foreach (var value in InOrder(root.Right))
+                yield return value;
+        }
+
+        // Left → Right → Root
+        public static IEnumerable<T> PostOrder<T>(TreeNode<T>? root)
+        {
+            if (root is null)
+                yield break;
+
+            foreach (var value in PostOrder(root.Left))
+                yield return value;
+
+            foreach (var value in PostOrder(root.Right))
+                yield return value;
+
+            yield return root.Value;
+        }
+
+        // Level by level
+        public static IEnumerable<T> LevelOrder<T>(TreeNode<T>? root)
+        {
+            if (root is null)
+                yield break;
+
+            var queue = new Queue<TreeNode<T>>();
+            queue.Enqueue(root);
+
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+
+                yield return node.Value;
+
+                if (node.Left is not null)
+                    queue.Enqueue(node.Left);
+
+                if (node.Right is not null)
+                    queue.Enqueue(node.Right);
+            }
         }
     }
 }

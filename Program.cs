@@ -1,8 +1,7 @@
-﻿using System;
-using Data_Structure.BinarySearch;
+﻿using Data_Structure.BinarySearch;
 using Data_Structure.InsertionSort;
-using Data_Structure.LinkedList;
 using Data_Structure.Merge_Sort;
+using Data_Structure.LinkedList;
 using Data_Structure.Queue;
 using Data_Structure.Stack;
 using Data_Structure.Tree;
@@ -15,53 +14,88 @@ namespace Data_Structure
         {
             // ===== Merge Sort =====
             int[] arr = { 8, 3, 5, 4, 2, 1 };
-            Console.WriteLine("Before MergeSort: " + string.Join(", ", arr));
+
+            Console.WriteLine(
+                "Before MergeSort: " + string.Join(", ", arr)
+            );
+
             MergeSort.Sort(arr);
-            Console.WriteLine("After MergeSort:  " + string.Join(", ", arr));
+
+            Console.WriteLine(
+                "After MergeSort:  " + string.Join(", ", arr)
+            );
+
             Console.WriteLine();
 
             // ===== Insertion Sort =====
             int[] arr1 = { 8, 3, 5, 4, 2, 1 };
-            Console.WriteLine("Before InsertionSort: " + string.Join(", ", arr1));
-            insertionsort.Sort(arr1); 
-            Console.WriteLine("After InsertionSort:  " + string.Join(", ", arr1));
+
+            Console.WriteLine(
+                "Before InsertionSort: " + string.Join(", ", arr1)
+            );
+
+            insertionsort.Sort(arr1);
+
+            Console.WriteLine(
+                "After InsertionSort:  " + string.Join(", ", arr1)
+            );
+
             Console.WriteLine();
 
             // ===== Binary Search =====
-            int[] arr3 = { 1, 3, 4, 5, 6, 7, 8 }; // Must be sorted
+            int[] arr3 = { 1, 3, 4, 5, 6, 7, 8 };
             int target = 5;
 
             int index = binarysearch.Search(arr3, target);
 
             if (index != -1)
-                Console.WriteLine($"Element {target} found at index: {index}");
+            {
+                Console.WriteLine(
+                    $"Element {target} found at index: {index}"
+                );
+            }
             else
-                Console.WriteLine($"Element {target} not found in the array");
+            {
+                Console.WriteLine(
+                    $"Element {target} not found in the array"
+                );
+            }
 
             Console.WriteLine();
 
-            // ===== Optional: Test LinkedList / Stack / Queue / Tree =====
+            // ===== Data Structure Tests =====
             Console.WriteLine("Choose Test:");
             Console.WriteLine("1 - LinkedList");
             Console.WriteLine("2 - Stack");
             Console.WriteLine("3 - Queue");
             Console.WriteLine("4 - Tree");
 
-            int choice = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int choice))
+            {
+                Console.WriteLine("Invalid choice.");
+                return;
+            }
 
             switch (choice)
             {
                 case 1:
                     TestLinkedList();
                     break;
+
                 case 2:
                     TestStack();
                     break;
+
                 case 3:
                     TestQueue();
                     break;
+
                 case 4:
                     TestTree();
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice.");
                     break;
             }
         }

@@ -25,7 +25,6 @@ understanding how common data structures and algorithms work.
 
 - How data is organized in different structures
 - How elements are inserted, removed and accessed
-- LIFO vs FIFO
 - Tree traversal
 - Searching algorithms
 - Sorting algorithms
@@ -43,11 +42,6 @@ Data Structure/
 ├── Stack/
 └── Tree/
 ```
-## 📖 Documentation
-
-For explanations, mental models, examples and complexity notes:
-
-👉 Read the Documentation ()
 
 ## 🎯 Purpose
 
@@ -59,7 +53,7 @@ and when it is useful.
 
 ## ⚠️ Attribution
 
-This repository is a fork of the original project by @AhmedDabish
+This repository is a fork of the original project by **AhmedDabish**. project link is [Data-Structure](https://github.com/AhmedDabish/Data-Structure)
 
 Changes in this fork primarily focus on documentation,
 organization and learning-oriented explanations.

@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 
-namespace Algorithms.TreeTraversal
+namespace Data_Structure.TreeTraversal
 {
-    public static class TreeTraversal
+    public static class treetraversal
     {
-        // Generic tree node used by the traversal algorithms
+        // Generic tree node used only by traversal algorithms
         public sealed class TreeNode<T>
         {
             public T Value { get; }
 
             public TreeNode<T>? Left { get; set; }
-
             public TreeNode<T>? Right { get; set; }
 
             public TreeNode(T value)
@@ -19,7 +18,9 @@ namespace Algorithms.TreeTraversal
             }
         }
 
-        // Root → Left → Right
+        // =========================
+        // PreOrder: Root -> Left -> Right
+        // =========================
         public static IEnumerable<T> PreOrder<T>(TreeNode<T>? root)
         {
             if (root is null)
@@ -34,7 +35,9 @@ namespace Algorithms.TreeTraversal
                 yield return value;
         }
 
-        // Left → Root → Right
+        // =========================
+        // InOrder: Left -> Root -> Right
+        // =========================
         public static IEnumerable<T> InOrder<T>(TreeNode<T>? root)
         {
             if (root is null)
@@ -49,7 +52,9 @@ namespace Algorithms.TreeTraversal
                 yield return value;
         }
 
-        // Left → Right → Root
+        // =========================
+        // PostOrder: Left -> Right -> Root
+        // =========================
         public static IEnumerable<T> PostOrder<T>(TreeNode<T>? root)
         {
             if (root is null)
@@ -64,7 +69,9 @@ namespace Algorithms.TreeTraversal
             yield return root.Value;
         }
 
-        // Level by level
+        // =========================
+        // LevelOrder: Breadth-First
+        // =========================
         public static IEnumerable<T> LevelOrder<T>(TreeNode<T>? root)
         {
             if (root is null)

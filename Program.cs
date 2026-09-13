@@ -1,4 +1,5 @@
 ﻿using Data_Structure.BinarySearch;
+using Data_Structure.TreeTraversal;
 using Data_Structure.InsertionSort;
 using Data_Structure.Merge_Sort;
 using Data_Structure.LinkedList;
@@ -6,49 +7,124 @@ using Data_Structure.Queue;
 using Data_Structure.Stack;
 using Data_Structure.Tree;
 
-using Algorithms.TreeTraversal;
-
 namespace Data_Structure
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            // ===== Merge Sort =====
+            RunMenu();
+        }
+
+        // =========================================
+        // Main Menu
+        // =========================================
+
+        static void RunMenu()
+        {
+            while (true)
+            {
+                Console.Clear();
+
+                Console.WriteLine("=================================");
+                Console.WriteLine(" Data Structures & Algorithms");
+                Console.WriteLine("=================================");
+                Console.WriteLine("1 - Merge Sort");
+                Console.WriteLine("2 - Insertion Sort");
+                Console.WriteLine("3 - Binary Search");
+                Console.WriteLine("4 - LinkedList");
+                Console.WriteLine("5 - Stack");
+                Console.WriteLine("6 - Queue");
+                Console.WriteLine("7 - Tree");
+                Console.WriteLine("0 - Exit");
+                Console.WriteLine("=================================");
+                Console.Write("Choose Test: ");
+
+                string? input = Console.ReadLine();
+
+                Console.Clear();
+
+                switch (input)
+                {
+                    case "1":
+                        TestMergeSort();
+                        break;
+
+                    case "2":
+                        TestInsertionSort();
+                        break;
+
+                    case "3":
+                        TestBinarySearch();
+                        break;
+
+                    case "4":
+                        TestLinkedList();
+                        break;
+
+                    case "5":
+                        TestStack();
+                        break;
+
+                    case "6":
+                        TestQueue();
+                        break;
+
+                    case "7":
+                        TestTree();
+                        break;
+
+                    case "0":
+                        Console.WriteLine("Exiting...");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid choice.");
+                        break;
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Press Enter to return to the menu...");
+                Console.ReadLine();
+            }
+        }
+
+        // =========================================
+        // Algorithms
+        // =========================================
+
+        static void TestMergeSort()
+        {
             int[] arr = { 8, 3, 5, 4, 2, 1 };
 
-            Console.WriteLine(
-                "Before MergeSort: " + string.Join(", ", arr)
-            );
+            Console.WriteLine("=== Merge Sort ===");
+            Console.WriteLine("Before: " + string.Join(", ", arr));
 
             MergeSort.Sort(arr);
 
-            Console.WriteLine(
-                "After MergeSort:  " + string.Join(", ", arr)
-            );
+            Console.WriteLine("After:  " + string.Join(", ", arr));
+        }
 
-            Console.WriteLine();
+        static void TestInsertionSort()
+        {
+            int[] arr = { 8, 3, 5, 4, 2, 1 };
 
-            // ===== Insertion Sort =====
-            int[] arr1 = { 8, 3, 5, 4, 2, 1 };
+            Console.WriteLine("=== Insertion Sort ===");
+            Console.WriteLine("Before: " + string.Join(", ", arr));
 
-            Console.WriteLine(
-                "Before InsertionSort: " + string.Join(", ", arr1)
-            );
+            insertionsort.Sort(arr);
 
-            insertionsort.Sort(arr1);
+            Console.WriteLine("After:  " + string.Join(", ", arr));
+        }
 
-            Console.WriteLine(
-                "After InsertionSort:  " + string.Join(", ", arr1)
-            );
-
-            Console.WriteLine();
-
-            // ===== Binary Search =====
-            int[] arr3 = { 1, 3, 4, 5, 6, 7, 8 };
+        static void TestBinarySearch()
+        {
+            int[] arr = { 1, 3, 4, 5, 6, 7, 8 };
             int target = 5;
 
-            int index = binarysearch.Search(arr3, target);
+            Console.WriteLine("=== Binary Search ===");
+
+            int index = binarysearch.Search(arr, target);
 
             if (index != -1)
             {
@@ -62,59 +138,21 @@ namespace Data_Structure
                     $"Element {target} not found in the array"
                 );
             }
-
-            Console.WriteLine();
-
-            // ===== Data Structure Tests =====
-            Console.WriteLine("Choose Test:");
-            Console.WriteLine("1 - LinkedList");
-            Console.WriteLine("2 - Stack");
-            Console.WriteLine("3 - Queue");
-            Console.WriteLine("4 - Tree");
-            Console.WriteLine("5 - Tree Traversal");
-
-            if (!int.TryParse(Console.ReadLine(), out int choice))
-            {
-                Console.WriteLine("Invalid choice.");
-                return;
-            }
-
-            switch (choice)
-            {
-                case 1:
-                    TestLinkedList();
-                    break;
-
-                case 2:
-                    TestStack();
-                    break;
-
-                case 3:
-                    TestQueue();
-                    break;
-
-                case 4:
-                    TestTree();
-                    break;
-
-                case 5:
-                    TestTreeTraversal();
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid choice.");
-                    break;
-            }
         }
 
-        // ===== LinkedList Test =====
+        // =========================================
+        // Linked List
+        // =========================================
+
         static void TestLinkedList()
         {
             DoublyLinkedList list = new DoublyLinkedList();
 
-            list.Add(new Employee(1, "Ahmed", 5000));
-            list.Add(new Employee(2, "Ali", 6000));
-            list.Add(new Employee(3, "Mona", 7000));
+            list.Add(new Employee(1, "Hi", 5000));
+            list.Add(new Employee(2, "Hello", 6000));
+            list.Add(new Employee(3, "Hey", 7000));
+
+            Console.WriteLine("=== LinkedList ===");
 
             Console.WriteLine("Forward:");
             list.PrintForward();
@@ -123,7 +161,10 @@ namespace Data_Structure
             list.PrintBackward();
         }
 
-        // ===== Stack Test =====
+        // =========================================
+        // Stack
+        // =========================================
+
         static void TestStack()
         {
             MyStack stack = new MyStack();
@@ -132,13 +173,19 @@ namespace Data_Structure
             stack.Push(20);
             stack.Push(30);
 
+            Console.WriteLine("=== Stack ===");
+
             Console.WriteLine("Pop: " + stack.Pop());
             Console.WriteLine("Peek: " + stack.Peek());
 
+            Console.WriteLine("Stack:");
             stack.Print();
         }
 
-        // ===== Queue Test =====
+        // =========================================
+        // Queue
+        // =========================================
+
         static void TestQueue()
         {
             MyQueue queue = new MyQueue(5);
@@ -147,12 +194,18 @@ namespace Data_Structure
             queue.Enqueue(2);
             queue.Enqueue(3);
 
+            Console.WriteLine("=== Queue ===");
+
             Console.WriteLine("Dequeue: " + queue.Dequeue());
 
+            Console.WriteLine("Queue:");
             queue.Print();
         }
 
-        // ===== Binary Tree Test =====
+        // =========================================
+        // Binary Tree + Tree Traversal
+        // =========================================
+
         static void TestTree()
         {
             BinaryTree tree = new BinaryTree();
@@ -163,42 +216,38 @@ namespace Data_Structure
             tree.Insert(3);
             tree.Insert(7);
 
-            Console.WriteLine("Binary Search Tree created.");
+            Console.WriteLine("=== Binary Search Tree ===");
             Console.WriteLine("Root: " + tree.Root.Data);
-        }
 
-        // ===== Tree Traversal Test =====
-        static void TestTreeTraversal()
-        {
-            // Create a generic tree
-            var root = new TreeTraversal.TreeNode<int>(10);
+            var root = new treetraversal.TreeNode<int>(10);
 
-            root.Left = new TreeTraversal.TreeNode<int>(5);
-            root.Right = new TreeTraversal.TreeNode<int>(15);
+            root.Left = new treetraversal.TreeNode<int>(5);
+            root.Right = new treetraversal.TreeNode<int>(15);
 
-            root.Left.Left = new TreeTraversal.TreeNode<int>(3);
-            root.Left.Right = new TreeTraversal.TreeNode<int>(7);
+            root.Left.Left = new treetraversal.TreeNode<int>(3);
+            root.Left.Right = new treetraversal.TreeNode<int>(7);
 
-            Console.WriteLine("Tree Traversal:");
+            Console.WriteLine();
+            Console.WriteLine("=== Tree Traversals ===");
 
             Console.WriteLine(
-                "PreOrder:  " +
-                string.Join(" ", TreeTraversal.PreOrder(root))
+                "PreOrder:   " +
+                string.Join(" ", treetraversal.PreOrder(root))
             );
 
             Console.WriteLine(
-                "InOrder:   " +
-                string.Join(" ", TreeTraversal.InOrder(root))
+                "InOrder:    " +
+                string.Join(" ", treetraversal.InOrder(root))
             );
 
             Console.WriteLine(
-                "PostOrder: " +
-                string.Join(" ", TreeTraversal.PostOrder(root))
+                "PostOrder:  " +
+                string.Join(" ", treetraversal.PostOrder(root))
             );
 
             Console.WriteLine(
-                "LevelOrder:" +
-                string.Join(" ", TreeTraversal.LevelOrder(root))
+                "LevelOrder: " +
+                string.Join(" ", treetraversal.LevelOrder(root))
             );
         }
     }

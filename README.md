@@ -42,3 +42,24 @@ Data Structure/
 ├── Queue/
 ├── Stack/
 └── Tree/
+```
+## 📖 Documentation
+
+For explanations, mental models, examples and complexity notes:
+
+👉 Read the Documentation ()
+
+## 🎯 Purpose
+
+This repository is intended as a practical learning and reference
+resource rather than a collection of code to memorize.
+
+The goal is to understand what each structure does, why it exists,
+and when it is useful.
+
+## ⚠️ Attribution
+
+This repository is a fork of the original project by @AhmedDabish
+
+Changes in this fork primarily focus on documentation,
+organization and learning-oriented explanations.

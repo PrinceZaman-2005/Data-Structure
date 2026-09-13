@@ -1,0 +1,44 @@
+# C# Data Structures & Algorithms
+
+A practical collection of fundamental Data Structures and Algorithms
+implemented in C#.
+
+This repository is organized as a simple learning reference for
+understanding how common data structures and algorithms work.
+
+## 📚 Contents
+
+### Data Structures
+
+- 🔗 Linked List
+- 📚 Stack
+- 🚶 Queue
+- 🌳 Binary Tree
+
+### Algorithms
+
+- 🔍 Binary Search
+- 📝 Insertion Sort
+- 🔀 Merge Sort
+
+## 🧠 What You'll Learn
+
+- How data is organized in different structures
+- How elements are inserted, removed and accessed
+- LIFO vs FIFO
+- Tree traversal
+- Searching algorithms
+- Sorting algorithms
+- Basic algorithmic thinking
+
+## 🗂️ Repository Structure
+
+```text
+Data Structure/
+├── BinarySearch/
+├── InsertionSort/
+├── LinkedList/
+├── Merge Sort/
+├── Queue/
+├── Stack/
+└── Tree/

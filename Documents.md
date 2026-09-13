@@ -20,6 +20,7 @@ structure or algorithm is doing, why it works, and where it is useful**.
 
 ### Algorithms
 - [Binary Search]
+- [Tree Traversal]
 - [Insertion Sort]
 - [Merge Sort]
 

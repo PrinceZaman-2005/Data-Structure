@@ -56,5 +56,9 @@ and when it is useful.
 
 This repository is a fork of the original project by **AhmedDabish**. project link is [Data-Structure](https://github.com/AhmedDabish/Data-Structure)
 
-Changes in this fork primarily focus on documentation,
-organization and learning-oriented explanations.
+Changes in this fork primarily focus:
+- Documentation
+- Organization
+- Learning-oriented explanations
+
+> Thanks for Visiting 🐱

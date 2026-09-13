@@ -1,4 +1,4 @@
-# C# Data Structures & Algorithms
+# 📚 C# Data Structures & Algorithms
 
 A practical collection of fundamental Data Structures and Algorithms
 implemented in C#.
@@ -6,7 +6,7 @@ implemented in C#.
 This repository is organized as a simple learning reference for
 understanding how common data structures and algorithms work.
 
-## 📚 Contents
+## 🗂️ Contents
 
 ### Data Structures
 
